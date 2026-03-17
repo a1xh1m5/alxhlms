@@ -1614,12 +1614,16 @@ window.addEventListener('scroll', () => {
   const RAW_URL     = 'https://raw.githubusercontent.com/' + GITHUB_USER + '/' + GITHUB_REPO + '/main/' + FILE_PATH;
 
   function formatTime(iso) {
-    const d = new Date(iso);
-    if (isNaN(d)) return iso;
-    return d.toLocaleString('en-US', {
-      month:'short', day:'numeric', year:'numeric',
-      hour:'numeric', minute:'2-digit', hour12:true
-    });
+    // Parse without timezone conversion — display exactly as written
+    // Handles both "2026-03-17T17:30:00Z" and "2026-03-17T17:30:00-06:00"
+    const match = iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+    if (!match) return iso;
+    const [, year, month, day, hour, min] = match;
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const h = parseInt(hour);
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12 = h % 12 || 12;
+    return months[parseInt(month)-1] + ' ' + parseInt(day) + ', ' + year + ', ' + h12 + ':' + min + ' ' + ampm;
   }
 
   function renderPosts(posts) {
