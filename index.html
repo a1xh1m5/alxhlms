@@ -1408,6 +1408,12 @@ function closePage() {
   const gyroBadge = document.getElementById('gyro-badge');
   let gyroActive = false;
 
+  function shrinkCardsForGyro() {
+    state.forEach(function(s) {
+      s.scale = Math.min(s.scale, 0.65);
+    });
+  }
+
   // Expose gyro enable to the button — must be called from direct user tap
   window.enableGyroFromButton = function() {
     var label = document.getElementById('gyro-btn-label');
@@ -1419,6 +1425,7 @@ function closePage() {
           enableGyro();
           if (label) label.textContent = 'Tilt active';
           if (!gravityOn) window.toggleGravity && window.toggleGravity();
+          shrinkCardsForGyro();
         } else {
           if (label) label.textContent = 'Permission denied';
         }
@@ -1430,6 +1437,7 @@ function closePage() {
       enableGyro();
       if (label) label.textContent = 'Tilt active';
       if (!gravityOn) window.toggleGravity && window.toggleGravity();
+      shrinkCardsForGyro();
     } else {
       if (label) label.textContent = 'Not supported';
     }
