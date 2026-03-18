@@ -1,6 +1,32 @@
 [
   {
-    "text": "new update if anybody cared",
-    "date": "2026-03-17T18:54:00Z"
+    "text": "PC
+
+Cursor trail follows your mouse
+Click anywhere spawns expanding rings
+Scroll progress bar at the top
+Parallax on the hero text when scrolling and moving your mouse
+Wordmark glitch animation on hover
+Magnetic nav buttons and chips pull toward your cursor
+Ripple effect on icon chip clicks
+Every word in the About section glows individually on hover
+Particle burst when clicking section labels
+Tooltips on nav pills
+
+Mobile
+
+Tap ripple on every button, card, chip and link
+Shake your phone on the playground to shuffle all cards
+Swipe left/right on subject pages to browse between them
+Long press subject headings for a hidden fun fact
+Tilt button in the playground to enable gyroscope gravity
+Cards automatically shrink when tilt activates
+
+Fixes
+
+Gyroscope completely reworked and now actually works on iOS
+Gravity physics and float mode both stable
+Card collisions fixed",
+    "date": "2026-03-17T19:31:00Z"
   }
 ]
